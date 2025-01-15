@@ -1,0 +1,343 @@
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            margin: 10px 0;
+            border: 1px solid #333;
+ئ            border-radius: 5px;
+            background-color: #2b2b3d;
+            color: #ffffff;
+        }
+
+        #gamesList {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .game-item {
+            background-color: #2b2b3d;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .game-item h3 {
+            margin: 10px 0;
+        }
+
+        .game-item button {
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .game-item button:hover {
+            background-color: #005f99;
+        }
+
+        .game-details {
+            display: none;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #c0392b;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .slider img {
+            width: 100%;
+            display: none;
+        }
+
+        .slider img.active {
+            display: block;
+        }
+
+        .slider .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .slider .arrow.left {
+            left: 10px;
+        }
+
+        .slider .arrow.right {
+            right: 10px;
+        }
+
+        .links a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #007acc;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #005f99;
+        }
+
+        .feature-description {
+            display: none;
+            padding: 10px;
+            background-color: #2b2b3d;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .feature-title {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #007acc;
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .feature-title:hover {
+            background-color: #005f99;
+        }
+        
+        .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1c1c2e;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    background: #2b2b3d;
+    border: none;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-btn:hover {
+    background: #007acc;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: #007acc;
+    box-shadow: 0 2px 8px rgba(0,122,204,0.4);
+}
+
+/* تعديل على المحتوى الرئيسي لتجنب تداخل الشريط السفلي */
+.container {
+    padding-bottom: 80px;
+}
+    
+    </style>
+    <script>
+        function showSlide(slides, index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
+        }
+
+        function nextSlide(slides) {
+            let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains("active"));
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(slides, currentSlideIndex);
+        }
+
+        function prevSlide(slides) {
+            let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains("active"));
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(slides, currentSlideIndex);
+        }
+
+        function initSlider(sliderId) {
+            const slides = document.querySelectorAll(`#${sliderId} img`);
+            const nextBtn = document.querySelector(`#${sliderId} .right`);
+            const prevBtn = document.querySelector(`#${sliderId} .left`);
+
+            nextBtn.addEventListener("click", () => nextSlide(slides));
+            prevBtn.addEventListener("click", () => prevSlide(slides));
+
+            showSlide(slides, 0);
+        }
+
+        function showDetails(gameId) {
+            document.getElementById("gamesList").style.display = "none";
+            document.getElementById(gameId).style.display = "block";
+        }
+
+        function backToList() {
+            const details = document.querySelectorAll(".game-details");
+            details.forEach(detail => detail.style.display = "none");
+            document.getElementById("gamesList").style.display = "grid";
+        }
+
+        function searchGames() {
+            const searchInput = document.getElementById("search").value.toLowerCase();
+            const games = document.querySelectorAll(".game-item");
+
+            games.forEach(game => {
+                const title = game.querySelector("h3").textContent.toLowerCase();
+                game.style.display = title.includes(searchInput) ? "block" : "none";
+            });
+        }
+
+        function toggleDescription(descriptionId) {
+            const description = document.getElementById(descriptionId);
+            description.style.display = description.style.display === "block" ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            for (let i = 1; i <= 100; i++) {
+                initSlider(`slider${i}`);
+            }
+        });
+        
+        
+        
+        
+        
+       function switchTab(tabId) {
+    // إلغاء تنشيط جميع الأزرار
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // تنشيط الزر المحدد
+    event.currentTarget.classList.add('active');
+    
+    // هنا يمكنك إضافة المنطق الخاص بتبديل المحتوى
+    if (tabId === 'games') {
+        document.getElementById('gamesList').style.display = 'grid';
+    }
+} 
+        
+        
+        
+        
+    </script>
+</head>
+<body>
+  
+  <div class="bottom-nav">
+    <div class="nav-bar">
+        <button class="nav-btn" onclick="window.location.href='index.html'">ɢᴀᴍᴇ ᴘs⁴</button>
+        <button class="nav-btn active" onclick="switchTab('games')">sᴏᴏɴ </button>
+        <button class="nav-btn" onclick="switchTab('themes')">sᴏᴏɴ</button>
+    </div>
+</div>
+
+    <div class="container">
+        <header>
+            <h1> </h1>  
+            
+       <div class="contact">
+        <strong>ᴄᴏᴍᴍᴜɴɪᴄᴀᴛɪᴏɴ</strong>
+        <a href="https://t.me/WI_FITOP" style="color: #ff4081;">ⓦⓘⓕⓘ ⓣⓞⓟ</a>
+    </div>
+        
+            <input type="text" id="search" placeholder="ابحث عن لعبة..." onkeyup="searchGames()">
+        </header>
+        
+             
+                <!-- قائمة الألعاب -->
+                
+     <section id="gamesList">
+       
+       
+                  
+            </section>
+
+        <!-- تفاصيل الألعاب -->
+        
+        
+
+    </div>
+    
+</section>
+</html>
+
+
+

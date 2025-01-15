@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ 
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -167,6 +167,52 @@
         .feature-title:hover {
             background-color: #005f99;
         }
+        
+        .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1c1c2e;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    background: #2b2b3d;
+    border: none;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-btn:hover {
+    background: #007acc;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: #007acc;
+    box-shadow: 0 2px 8px rgba(0,122,204,0.4);
+}
+
+/* تعديل على المحتوى الرئيسي لتجنب تداخل الشريط السفلي */
+.container {
+    padding-bottom: 80px;
+}
+    
     </style>
     <script>
         function showSlide(slides, index) {
@@ -225,13 +271,37 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            for (let i = 1; i <= 100; i++) {
+            for (let i = 1; i <= 1000; i++) {
                 initSlider(`slider${i}`);
             }
         });
+        function switchTab(tabId) {
+    // إلغاء تنشيط جميع الأزرار
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // تنشيط الزر المحدد
+    event.currentTarget.classList.add('active');
+    
+    // هنا يمكنك إضافة المنطق الخاص بتبديل المحتوى
+    if (tabId === 'games') {
+        document.getElementById('gamesList').style.display = 'grid';
+    }
+} 
+ 
     </script>
 </head>
 <body>
+   
+   <div class="bottom-nav">
+    <div class="nav-bar">
+        <button class="nav-btn active" onclick="switchTab('games')">ɢᴀᴍᴇ ᴘs⁴</button>
+    <button class="nav-btn" onclick="window.location.href='ps5.html'">sᴏᴏɴ </button>
+        <button class="nav-btn" onclick="switchTab('themes')">sᴏᴏɴ</button>
+    </div>
+</div>
+ 
     <div class="container">
         <header>
             <h1>🄶🄾🄻🄳 🄷 🄴 🄽 </h1>  
@@ -247,12 +317,39 @@
         <!-- قائمة الألعاب -->
      <section id="gamesList">
        
+       
+      <div class="game-item">
+       <img src="كنك.jpg" alt="Metaphor: ReFantazio">
+           <h3>Concrete Genie</h3>
+                <button onclick="showDetails('كنك')">ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ</button>
+            </div>
+            
+            
            <div class="game-item">
+       <img src="ميتلفور.jpg" alt="Concrete Genie">
+           <h3>Metaphor ReFantazio</h3>
+                <button onclick="showDetails('Metaphor')">ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ</button>
+            </div>
+         
+       
+       <div class="game-item">
+       <img src="سيفو.jpg" alt="SIFU">
+           <h3>SIFU</h3>
+                <button onclick="showDetails('SIFU')">ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ</button>
+            </div>
+            
+       
+            <div class="game-item">
+       <img src="ريكون.jpg" alt="Tom Clancy's Ghost Recon Wildlands">
+           <h3>Tom Clancys Ghost Recon Wildlands </h3>
+                <button onclick="showDetails('Tom')">ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ</button>
+            </div>
+            
+                <div class="game-item">
        <img src="تراس.jpg" alt="Hogwarts Legacy">
                 <h3>Hogwarts Legacy</h3>
                 <button onclick="showDetails('Hogwarts Legacy')">ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ</button>
             </div>
-               
                   
          <div class="game-item">
        <img src="نداء.jpg" alt=" Call of Duty WWII">
@@ -492,7 +589,158 @@
         </section>
 
         <!-- تفاصيل الألعاب -->
-        
+      
+      
+      
+      <section id="كنك"
+class="game-details">
+            <button class="back-button" onclick="backToList()">العودة</button>
+    <h2>ᴄᴏɴᴄʀᴇᴛᴇ ɢᴇɴɪᴇ  العــربيــة</h2>
+    <div class="slider" id="slider42">
+<img src="كنك1.jpg" class="active" alt="صورة 1">
+ 
+ <img src="كنك3.jpg" alt="صورة 3">   
+ <img src="كنك4.jpg" alt="صورة 4">   
+  <img src="كنك5.jpg" alt="صورة 5"> 
+  
+                <button class="arrow left">&lt;</button>
+                <button class="arrow right">&gt;</button>
+            </div>
+            <div class="feature-title" onclick="toggleDescription('description42')">معلومـات اللعبــة</div>
+            
+            <div class="feature-description" id="description42">
+                <ul>
+  
+  <li>ID:CUSA47038 Update:1.07</li>
+  <li>اللغــة العــربية:القــوائــم/الحـوارت</li>
+       <li> 40.76 GB :حجــم اللعبـة</li>
+       <li> 40.76 MG :حجــم التحــديـث</li>
+ <li>نــوع اللعبــة:مغـامـرات، أكـشن، إبـداع فـنـي </li>
+           </ul>
+            </div>
+            <div class="links">
+          <a href="https://filecrypt.cc/Container/31C3594C7E.html"> Gᴀᴍᴇ اللعبة </a>
+          
+          <a href="https://filecrypt.cc/Container/0A2481E08D.html">Pᴀᴛᴄʜ Aʀᴀʙɪᴄ التحـديـث</a>
+          
+           <a href="https://1fichier.com/?2vlszeoj0t4g04clpzp6[GamesPs4I].rar/file">Dʟᴄ  الاضافات</a>
+           
+                                      
+            </div>
+          </section>
+
+
+
+    <section id="Metaphor" class="game-details">
+            <button class="back-button" onclick="backToList()">العودة</button>
+    <h2>ᴍᴇᴛᴀᴘʜᴏʀ: ʀᴇғᴀɴᴛᴀᴢɪᴏ   العــربيــة</h2>
+    <div class="slider" id="slider41">
+<img src="ميتلفور1.jpg" class="active" alt="صورة 1">
+ <img src="ميتلفور3.jpg" alt="صورة 2">
+ <img src="ميتلفور4.jpg" alt="صورة 3">   
+ <img src="ميتلفور5.jpg" alt="صورة 4">   
+  <img src="ميتلفور6.jpg" alt="صورة 5"> 
+  
+                <button class="arrow left">&lt;</button>
+                <button class="arrow right">&gt;</button>
+            </div>
+            <div class="feature-title" onclick="toggleDescription('description41')">معلومـات اللعبــة</div>
+            
+            <div class="feature-description" id="description41">
+                <ul>
+  
+  <li>🅸🅳:CUSA47038, Update:🆅1.09 </li>
+  <li>اللغــة العــربية : القــوائــم / الحـوارت</li>
+       <li> 11.32 GB :حجــــــم اللعبـة</li>
+       <li> 3.60 GB :حجــــــم التحــديـث</li>
+ <li>  فانتازيا (Rᴘɢ) نـوع اللعبـة: تقمص أدوار </li>
+           </ul>
+            </div>
+            <div class="links">
+          <a href="https://filecrypt.co/Container/DEB5351171.html#GamesPs4I"> Gᴀᴍᴇ اللعبة </a>
+          
+          <a href="https://www.mediafire.com/file/zimgj25ph1pezcu/Metaphor_ReFantazio_1-2./GamesPs4I_pkg/file">Pᴀᴛᴄʜ Aʀᴀʙɪᴄ التحـديـث</a>
+          
+           <a href="https://www.mediafire.com/file/8odcfkyueq0m5rs/Metaphor.ReFantazio.CUSA47038.DLC.Pack-Barquillo-CyB1K-[GamesPs4I].rar/file">Dʟᴄ  الاضافات</a>
+           
+                                      
+            </div>
+          </section>
+
+
+     <section id="SIFU"class="game-details">
+            <button class="back-button" onclick="backToList()">العودة</button>
+    <h2>  sɪғᴜ  العــربيــة</h2>
+    <div class="slider" id="slider40">
+<img src="سيفو1.jpg" class="active" alt="صورة 1">
+ <img src="سيفو2.jpg" alt="صورة 2">
+ <img src="سيفو3.jpg" alt="صورة 3">   
+ <img src="سيفو4.jpg" alt="صورة 4">  
+
+                <button class="arrow left">&lt;</button>
+                <button class="arrow right">&gt;</button>
+            </div>
+            <div class="feature-title" onclick="toggleDescription('description40')">معلومـات اللعبــة</div>
+            
+            <div class="feature-description" id="description40">
+                <ul>
+  
+  <li>ID:CUSA30202, Update:v1.22</li>
+  <li>اللغــة العــربية : القــوائــم/الحـوارت</li>
+       <li> 8.49 🅶🅱:حجــــــم اللعبـة</li>
+       <li> 10.04🅶🅱:حجــــــم التحــديـث</li>
+ <li> نــوع اللعبــة: أكشن، فنون قتالية، مغامرات</li>
+  <li>ساعات اللعب: تتراوح بين 10 إلى 15 ساعة⏰  </li>
+           </ul>
+            </div>
+            <div class="links">
+          <a href="https://www.mediafire.com/file/xud6wpqc3cz0ws4/UP2703-CUSA30202_00-WUGUAN0000000001-A0100-V0100-CyB1K-[DLPSGAME.COM].pkg/file"> Gᴀᴍᴇ اللعبة </a>
+          
+          <a href="https://filecrypt.co/Container/6DAF713A4F.html"> Uᴘᴅᴀᴛᴇ التحـديـث</a>
+                                     
+            </div>
+          </section>
+
+
+      <section id="Tom"class="game-details">
+            <button class="back-button" onclick="backToList()">العودة</button>
+    <h2> Tᴏᴍ Cʟᴀɴᴄʏ's Gʜᴏsᴛ Rᴇᴄᴏɴ Wɪʟᴅʟᴀɴᴅs   العــربيــة</h2>
+    <div class="slider" id="slider39">
+<img src="ريكون1.jpg" class="active" alt="صورة 1">
+ <img src="ريكون2.jpg" alt="صورة 2">
+ <img src="ريكون3.jpg" alt="صورة 3">   
+ <img src="ريكون4.jpg" alt="صورة 4">  
+ <img src="ريكون5.jpg" alt="صورة 5">   
+
+                <button class="arrow left">&lt;</button>
+                <button class="arrow right">&gt;</button>
+            </div>
+            <div class="feature-title" onclick="toggleDescription('description39')">معلومـات اللعبــة</div>
+            
+            <div class="feature-description" id="description39">
+                <ul>
+  
+  <li>ID:CUSA02821, Update:v1.31</li>
+  <li>اللغــة العــربية: القــوائــم / الحـوارت</li>
+       <li> 36 🅶🅱:حجـــم اللعبـة</li>
+       <li> 20 🅶🅱:حجـــم التحــديـث</li>
+ <li> نــوع اللعبــة: أكشن تكتيكي، عالم مفتوح</li>
+ <li> SAVEDATA فتح جميع الاسلحة واللبسات ✔️</li>
+           </ul>
+            </div>
+            <div class="links">
+          <a href="https://filecrypt.co/Container/8C58FC76E9.html"> Gᴀᴍᴇ اللعبة </a>
+          
+          <a href="https://filecrypt.co/Container/F89C451DB4.html"> Uᴘᴅᴀᴛᴇ التحـديـث</a>
+          
+           <a href="https://filecrypt.co/Container/45BFF13B38.html"> Dʟᴄ  الاضافات</a>
+           
+                     <a href="https://filecrypt.co/Container/45BFF13B38.html"> sᴀᴠᴇ ᴅᴀᴛᴀ </a>
+                                           
+            </div>
+          </section>
+   
+     
         
 <section id="Hogwarts Legacy"class="game-details">
             <button class="back-button" onclick="backToList()">العودة</button>
@@ -512,11 +760,12 @@
             <div class="feature-description" id="description38">
                 <ul>
   
-  <li>ID:CUSA08631, Update:v1.11</li>
+  <li>ID:CUSA12771, Update:v1.05</li>
   <li>اللغــة العــربية : القــوائــم / الحـوارت</li>
-       <li> 43🅶🅱:حجــــــم اللعبـة</li>
-       <li> 23🅶🅱:حجــــــم التحــديـث</li>
- <li> نــوع اللعبــة: اكـشـن,حـروب </li>
+       <li> 38.93🅶🅱:حجــــــم اللعبـة</li>
+       <li> 31.56🅶🅱:حجــــــم التحــديـث</li>
+ <li> نــوع اللعبــة: أكشن، مغامرات، تقمص أدوار</li>
+  <li> ساعات اللعب: تتراوح بين 30 إلى 50+ ساعة                                   ⏰ حسب الاستكشاف والمهام الجانبية </li>
            </ul>
             </div>
             <div class="links">
@@ -524,7 +773,7 @@
           
           <a href="https://filecrypt.cc/Container/CF85A948B6.html"> Uᴘᴅᴀᴛᴇ التحـديـث</a>
           
-           <a href="https://filecrypt.cc/Container/2034F40C5E.html"> Dʟᴄ  الاضافات</a>
+           <a href="https://filecrypt.cc/Container/2034F40C5E.html"> Dʟᴄ الاضافات</a>
                                            
             </div>
           </section>
@@ -557,7 +806,7 @@
             <div class="links">
           <a href="https://filecrypt.co/Container/A554745143.html"> Gᴀᴍᴇ اللعبة </a>
           
-          <a href="https://filecrypt.co/Container/137023325C.html"> Uᴘᴅᴀᴛᴇ التحـديـث</a>
+          <a href="https://filecrypt.co/Container/0F8ACF62EB.html"> Uᴘᴅᴀᴛᴇ التحـديـث</a>
           
            <a href="https://filecrypt.co/Container/9C5350A315.html"> Dʟᴄ  الاضافات</a>
                                            
@@ -601,15 +850,14 @@
           
                    
             <a href="https://www.mediafire.com/file/uxnvtktz4syyplx/Bloodborne.rar/file?dkey=7jnfpvrlhoi&r=1748">Sᴀᴠᴇ Dᴀᴛᴀ </a>
-                
-                                          
+                                                       
             </div>
           </section>
   
   
            <section id="Elden Ring Shadow" class="game-details">
             <button class="back-button" onclick="backToList()">العودة</button>
-    <h2>Eʟᴅᴇɴ Rɪɴɢ Sʜᴀᴅᴏᴡ   العــربيــة</h2>
+    <h2>Eʟᴅᴇɴ Rɪɴɢ Sʜᴀᴅᴏᴡ  العــربيــة</h2>
     <div class="slider" id="slider35">
 <img src="خاتم1.jpg" class="active" alt="صورة 1">
  <img src="خاتم2.jpg" alt="صورة 2">
@@ -649,7 +897,7 @@
       
         <section id="The Witcher 3 " class="game-details">
             <button class="back-button" onclick="backToList()">العودة</button>
-    <h2>Tʜᴇ Wɪᴛᴄʜᴇʀ 3  العــربيــة</h2>
+    <h2> Tʜᴇ Wɪᴛᴄʜᴇʀ 3  العــربيــة</h2>
     <div class="slider" id="slider34">
 <img src="ذاوتشر1.jpg" class="active" alt="صورة 1">
  <img src="ذاوتشر2.jpg" alt="صورة 2">
@@ -721,7 +969,7 @@
             </div>
             <div class="links">
           <a href="https://www.mediafire.com/file/8j7geog014tptv0/Mortal.Shell+1-1.rar/file"> Gᴀᴍᴇ  اللعبة</a>
-          <a href="https://www.mediafire.com/file/mhj088aepy5w25r/EP3495-CUSA20133_00-MORTALSHELL00001-A0112-V0100.rar/file">Uᴘᴅᴀᴇ التحديث</a>
+          <a href="https://www.mediafire.com/file/zitbw9kltdmfjlw/file?dkey=uz35bi40mnc&r=828">Uᴘᴅᴀᴇ التحديث</a>
                 
            <a href="https://www.mediafire.com/file/hp7a3bapy4pfz1i/hako-duplex-mortal.shell.rotting.christ.music.pack.dlc.ps4.rar">Dʟᴄ  الاضافات</a>
                                                 
@@ -1011,8 +1259,8 @@
                 </ul>
             </div>
             <div class="links">
-                <a href="https://filecrypt.cc/Container/92F17E7B3B.html">تحميل اللعبة</a>
-                <a href="https://anotepad.com/notes/j8xh72er">تحميل التحديث</a>
+                <a href="https://filecrypt.cc/Container/92F17E7B3B.html">Gᴀᴍᴇ اللعبة</a>
+                <a href="https://anotepad.com/notes/j8xh72er">Uᴘᴅᴀᴛᴇ التحديث</a>
             </div>
           </section>
           
@@ -1077,8 +1325,8 @@
                 </ul>
             </div>
             <div class="links">
-                <a href="https://filecrypt.co/Container/2749FFDFCB">Gᴀᴍᴇ اللعبة</a>
-                <a href="https://filecrypt.co/Container/45296E4CE4">Uᴘᴅᴀᴇ التحديـث</a>
+                <a href="https://filecrypt.co/Container/8E28D95F94.html">Gᴀᴍᴇ اللعبة</a>
+                <a href="https://www.mediafire.com/file/gd6bataat3qdj1e/The.Last.of.Us.Part.2-_CUSA10249_A0107_BACKPORT_ar_morad.txt/file">Uᴘᴅᴀᴇ التحديـث</a>
             </div>
           </section>
   
@@ -1257,7 +1505,7 @@ class="active" alt="صورة 1">
      <img src="ريد11.jpg" class="active" alt="صورة 1">
     <img src="ريد2.jpg" alt="صورة2 ">
 
-                <img src="ريد3.jpg" alt="صورة 3">
+    <img src="ريد3.jpg" alt="صورة 3">
                 <button class="arrow left">&lt;</button>
                 <button class="arrow right">&gt;</button>
             </div>
@@ -1272,10 +1520,9 @@ class="active" alt="صورة 1">
                 </ul>
             </div>
             <div class="links">
-                <a href="https://filecrypt.co/Container/E7F3B3AE75.html#4gamer"> Gᴀᴍᴇ Rᴀʀ  اللعبة</a>
-            <a href="https://akirabox.com/N2p3DQ5nzMa5/file#4gamer">Gᴀᴍᴇ Pᴋɢ اللعبة</a>
-                <a href="https://filecrypt.co/Container/8DEB0F6E75.html">Uᴘᴅᴀᴇ التحديث</a>
-                <a href=class="https://akirabox.com/N2p3DQ5VzMa5/file#4gamer">Dʟᴄ الإضافات</a>
+                <a href="https://filecrypt.co/Container/E7F3B3AE75.html#4gamer"> Gᴀᴍᴇ اللعبة</a>
+ href="https://filecrypt.co/Container/8DEB0F6E75.html">Uᴘᴅᴀᴇ التحديث</a>
+
             </div>
         </section>
         
@@ -1428,7 +1675,7 @@ class="active" alt="صورة 1">
   
           <section id="Tomb Raider Definitiv" class="game-details">
             <button class="back-button" onclick="backToList()">العودة</button>
-            <h2>ᴛᴏᴍʙ ʀᴀɪᴅᴇʀ ᴅᴇғɪɴɪᴛɪᴠ العــربية</h2>
+            <h2> ᴛᴏᴍʙ ʀᴀɪᴅᴇʀ ᴅᴇғɪɴɪᴛɪᴠ العــربية</h2>
             <div class="slider" id="slider14">
                 <img src="ديفايز5.webp" class="active" alt="صورة 1">
                 <img src="ديفايز1.webp" class="alt="صورة 2">
@@ -1458,7 +1705,7 @@ class="active" alt="صورة 1">
   
           <section id="Rise of The Tomb Raider" class="game-details">
             <button class="back-button" onclick="backToList()">العودة</button>
-            <h2>Rise of The Tomb Raider العربية</h2>
+            <h2>Rɪsᴇ Oғ Tʜᴇ Tᴏᴍʙ Rᴀɪᴅᴇʀ  العربية</h2>
             <div class="slider" id="slider15">
                 <img src="تومب11.jpg" class="active" alt="صورة 1">
                 <img src="تومب2.jpg" class="alt="صورة 2">
