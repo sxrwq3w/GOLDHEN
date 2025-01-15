@@ -212,7 +212,236 @@
 .container {
     padding-bottom: 80px;
 }
-    
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #121212; /* لون خلفية داكن */
+        color: #e0e0e0; /* لون النص */
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        background-color: #1c1c2e; /* خلفية الحاوية */
+        border-radius: 10px; /* زوايا دائرية */
+        padding: 20px; /* حشوة داخلية */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* تأثير ظل */
+    }
+
+    header {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        max-width: 400px;
+        margin: 10px 0;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: #2b2b3d;
+        color: #ffffff;
+        transition: border-color 0.3s; /* تأثير تغيير لون الحدود */
+    }
+
+    input[type="text"]:focus {
+        border-color: #007acc; /* تغيير لون الحدود عند التركيز */
+    }
+
+    #gamesList {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .game-item {
+        background-color: #2b2b3d;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s; /* تأثير عند التحويم */
+    }
+
+    .game-item:hover {
+        transform: translateY(-5px); /* رفع العنصر قليلاً عند التحويم */
+    }
+
+    .game-item img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .game-item h3 {
+        margin: 10px 0;
+        font-size: 1.2em; /* حجم خط أكبر */
+        color: #ffcc00; /* لون نص مميز */
+    }
+
+    .game-item button {
+        padding: 10px 20px;
+        background-color: #007acc;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s, transform 0.3s; /* تأثير عند التحويم */
+    }
+
+    .game-item button:hover {
+        background-color: #005f99; /* لون أغمق عند التحويم */
+        transform: scale(1.05); /* تكبير عند التحويم */
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        background-color: #e74c3c;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: background-color 0.3s; /* تأثير تغيير اللون */
+    }
+
+    .back-button:hover {
+        background-color: #c0392b; /* لون أغمق عند التحويم */
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .slider img {
+        width: 100%;
+        display: none;
+    }
+
+    .slider img.active {
+        display: block;
+    }
+
+    .slider .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        transition: background-color 0.3s; /* تأثير تغيير اللون */
+    }
+
+    .slider .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.7); /* لون أغمق عند التحويم */
+    }
+
+    .slider .arrow.left {
+        left: 10px;
+    }
+
+    .slider .arrow.right {
+        right: 10px;
+    }
+
+    .links a {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #007acc;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 8px;
+        text-align: center;
+        transition: background-color 0.3s; /* تأثير تغيير اللون */
+    }
+
+    .links a:hover {
+        background-color: #005f99; /* لون أغمق عند التحويم */
+    }
+
+    .feature-description {
+        display: none;
+        padding: 10px;
+        background-color: #2b2b3d;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .feature-title {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #007acc;
+        color: #ffffff;
+        border-radius: 8px;
+        text-align: left;
+        margin-top: 10px;
+        transition: background-color 0.3s; /* تأثير تغيير اللون */
+    }
+
+    .feature-title:hover {
+        background-color: #005f99; /* لون أغمق عند التحويم */
+    }
+
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #1c1c2e;
+        padding: 10px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .nav-bar {
+        display: flex;
+        justify-content: space-around;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .nav-btn {
+        background: #2b2b3d;
+        border: none;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .nav-btn:hover {
+        background: #007acc;
+        transform: translateY(-2px);
+    }
+
+    .nav-btn.active {
+        background: #007acc;
+        box-shadow: 0 2px 8px rgba(0, 122, 204, 0.4);
+    }
+
+    /* تعديل على المحتوى الرئيسي لتجنب تداخل الشريط السفلي */
+    .container {
+        padding-bottom: 80px;
+    }
+ 
     </style>
     <script>
         function showSlide(slides, index) {
@@ -304,8 +533,9 @@
  
     <div class="container">
         <header>
-            <h1>🄶🄾🄻🄳 🄷 🄴 🄽 </h1>  
-            
+            <h1> </h1>  
+              <h1><img src="كولد.png" alt="ملصق" style="width: 250px; height: auto;"></h1>
+              
        <div class="contact">
         <strong>ᴄᴏᴍᴍᴜɴɪᴄᴀᴛɪᴏɴ</strong>
         <a href="https://t.me/WI_FITOP" style="color: #ff4081;">ⓦⓘⓕⓘ ⓣⓞⓟ</a>
